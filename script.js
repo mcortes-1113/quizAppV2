@@ -14,7 +14,9 @@ var currentCh;
 var currentA;
 var option;
 var userAnswer;
-
+//score variables
+var score;
+var initials;
 /*display variables
 
 var qCount;*/
@@ -199,6 +201,10 @@ $("#startBtn").on("click", function() {
 //function to end test
 
     function endTest() {
+        $("#question").text("");
+        $("#choices").text("")   ;
         $("#resultCont").text("End of Test");
+        score = secondsRemain;
+        console.log("score: " + score);
         stopTimer();
     }
