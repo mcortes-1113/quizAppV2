@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href=style.css>
+</head>
+
+<body>
+
+    <!--NavBar Begins-->
+        <nav id="Nav" class="navbar navbar-light bg-light">
+            <span id="Title" class="navbar-text">Interactive Quiz Application</span>
+            <span id="by" class="navbar-text">by Mario Cortes</span>
+        </nav>
+    <!--NavBar Ends-->
+
+
+    <!--Header Begins-->
+        <div id="Header">
+        <h1>Coding Quiz</h1>
+        </div>
+    <!--Header Ends-->
+
+    <!--Main Content Section Begins-->
+    <div id="mainCont">
+
+        <!--High Score Section Begins-->
+        <div id="highScoresCont">
+            <h4>High Scores</h4>
+                <ol>
+                    <li>1</li>
+                    <li>2</li>
+                </ol>
+        </div>
+        <!--High Score Section Ends-->
+
+            <!--Quiz Section Begins-->   
+            <div id="quizCont" >
+                <div id="quizHeader">
+                    <button id="startBtn" type="button">Start Quiz</button>
+                    <span>Score:</span><span>0</span>
+                        <div id="timerInfo">
+                        <span>Time Remaining:</span><span id="timer">0</span><span>Seconds Left</span>
+                        </div>
+                </div>
+
+                    <div>
+                        <div>
+                            <p id="question"></p>
+                        </div>
+
+                        <div id="options">
+                            <ol id="choices"></ol>
+                        </div>
+
+                        <div id="resultCont">
+                            <img src="#"><span id="result"></span>
+                        </div>
+                    </div>
+            </div> 
+            <!--Quiz Section Ends-->
+
+    <!--Save Score Begins-->
+    <div id="saveScore">
+    <span>Initials Placeholder</span><input type="text">
+    </div>
+    <!--Save Score Ends-->
+    </div>
+
+    <!--Main Content Section Ends-->
+
+
+    <!--Footer Begins-->
+    <style>.footer{
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            margin: 0;
+            font-size: 8pt;
+            line-height: 15px;
+            padding: 5px 0px;
+            }                 
+    </style>
+        <p class="footer">Copyright &copy;</p>
+    <!--Footer Ends-->
+
+    <script src="script.js"></script>
+    <!-- <script src="questionbank.js"></script> -->
+
+</body>
+</html>

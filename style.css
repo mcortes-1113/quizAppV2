@@ -1,0 +1,43 @@
+#header {
+    background-color: lightblue;
+}
+
+#btnGroup {
+    background-color: lightcoral;
+}
+
+#description {
+    background-color: lightslategrey;
+}
+
+#mainCont {
+    height: auto;
+    border: 5pt solid red;
+}
+
+#highScoresCont {
+    background-color: lightsalmon;
+    float: left;
+    width: 20%;
+}
+
+#quizCont {
+    float: right;
+    background-color: grey;
+    border: 5pt solid red;
+    width: 80%;
+}
+
+#quizHeader {
+    background-color: lightgreen;
+}
+
+#saveScore {
+    float: right;
+    background-color: hotpink;
+}
+
+#timerInfo {
+    float: right;
+}
+
