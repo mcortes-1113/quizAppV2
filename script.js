@@ -15,11 +15,13 @@ var currentA;
 var option;
 var userAnswer;
 //score variables
-var score;
+var newScore;
 var initials;
 /*display variables
 
 var qCount;*/
+
+var highScores = [];
 
 var qbank = [
     {
@@ -69,10 +71,46 @@ function stopTimer() {
 //add functions to start button
 
 $("#startBtn").on("click", function() {
-//need to add code to disable button
+    event.preventDefault()
     startTimer();
     firstQ();
 });
+
+function saveScore() {
+    highScores = localStorage.getItem("highScores");
+    highScores = highScores ? JSON.parse(highScores) : [];
+        initials = $("#initials").val();
+        var addScore = {
+                score : newScore,
+                user :  initials
+                }
+    highScores.push(addScore);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    renderScores();
+}
+
+
+
+
+
+
+function renderScores() {
+    $("#highScoresTable tr").remove();
+    $("#highScoresTable").append($("<tr><th> User </th><th> Score </th></tr>"));
+    highScores = localStorage.getItem("highScores");
+    highScores = highScores ? JSON.parse(highScores) : [];
+    for (i=0;i<highScores.length;i++) {
+        var score = highScores[i];
+        $("#highScoresTable").append($("<tr><td>" + score.user + "</td><td>" + score.score + "</td></tr>"));
+    }
+}
+
+renderScores();
+
+$("#saveBtn").on("click", function() {
+    event.preventDefault();
+    saveScore();
+    });
 
 //----------------------------------------------------
 
@@ -204,7 +242,30 @@ $("#startBtn").on("click", function() {
         $("#question").text("");
         $("#choices").text("")   ;
         $("#resultCont").text("End of Test");
-        score = secondsRemain;
-        console.log("score: " + score);
+        newScore = secondsRemain;
+        $("#finalScore").text(newScore);
         stopTimer();
     }
+
+    //on click event to add activities to itinerary object
+// $("#actbtn").on("click", function(event) {
+//     event.preventDefault();
+//     getUserActivities(event);
+    // actArr = localStorage.getItem("activities");
+    // actArr = actArr ? JSON.parse(actArr) : [];
+    
+
+
+    // $("#newbtn").on("click", function(event) {
+    //     event.preventDefault();
+    //     getTripID(event);
+    //     getDatesArray(event);
+    //     tripsArr = localStorage.getItem("trips");
+    //     tripsArr = tripsArr ? JSON.parse(tripsArr) : [];
+    //     var trip = {
+    //                 tripID : tID,
+    //                 tripDates : tDates
+    //                 }
+    //     tripsArr.push(trip);
+    //     localStorage.setItem("trips", JSON.stringify(tripsArr));
+    // })
