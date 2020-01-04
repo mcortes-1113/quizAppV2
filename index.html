@@ -20,58 +20,78 @@
         </nav>
     <!--NavBar Ends-->
 
-
-    <!--Header Begins-->
-        <div id="Header">
-        <h1>Coding Quiz</h1>
-        </div>
-    <!--Header Ends-->
-
     <!--Main Content Section Begins-->
-    <div id="mainCont">
 
-        <!--High Score Section Begins-->
-        <div id="highScoresCont">
-            <h4>High Scores</h4>
-                <ol>
-                    <li>1</li>
-                    <li>2</li>
-                </ol>
-        </div>
-        <!--High Score Section Ends-->
+    <div class="container" id="mainCont">
 
-            <!--Quiz Section Begins-->   
-            <div id="quizCont" >
-                <div id="quizHeader">
-                    <button id="startBtn" type="button">Start Quiz</button>
-                    <span>Score:</span><span>0</span>
-                        <div id="timerInfo">
-                        <span>Time Remaining:</span><span id="timer">0</span><span>Seconds Left</span>
-                        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h1 id="Header">Coding Quiz</h1>
                 </div>
-
-                    <div>
-                        <div>
-                            <p id="question"></p>
-                        </div>
-
-                        <div id="options">
-                            <ol id="choices"></ol>
-                        </div>
-
-                        <div id="resultCont">
-                            <img src="#"><span id="result"></span>
+            </div>
+        </div>
+        
+            <div class="row" id="info-row">
+                <div class="col-md-3 offset-3">
+                    <button id="startBtn" type="button">Start Quiz</button>
+                </div>
+                    <div class="col-md-3 offset-3">
+                        <div id="timerInfo">
+                            <span>Time Remaining:</span><span id="timer">0</span>
                         </div>
                     </div>
-            </div> 
-            <!--Quiz Section Ends-->
+            </div>
 
-    <!--Save Score Begins-->
-    <div id="saveScore">
-    <span>Initials Placeholder</span><input type="text">
-    </div>
-    <!--Save Score Ends-->
-    </div>
+                <div class="row">
+                    <div class="col-md-3" id="highScoresDiv">
+                        <h4>High Scores</h4>
+                            <table id="highScoresTable">
+                                <!-- <table style="width:100%"> -->
+                                <!-- <tr>
+                                    <th>User</th>
+                                    <th>Score</th>
+                                    <th colspan="2">Score</th>
+                                </tr> -->
+                                    <!-- <tr>
+                                        <td>Bill Gates</td>
+                                        <td>55577854</td>
+                                        <td>55577855</td>
+                                    </tr> -->
+                            </table>
+                            <!-- <ol id="highScores">
+                                <li>1</li>
+                                <li>2</li>
+                            </ol> -->
+                    </div>
+
+                        <div class="col-md-9" id="quizDiv">
+                            <div>
+                                <div>
+                                    <p id="question"></p>
+                                </div>
+                                    <div id="options">
+                                        <ol id="choices"></ol>
+                                    </div>
+                                        <div id="resultCont">
+                                            <!-- <img src="#"> -->
+                                            <span id="result"></span>
+                                        </div>
+                            </div>
+                        </div> 
+                </div>
+
+                    <div class="row" id="scoreDiv">
+                        <div class="col-md-2 offset-5">
+                            <span>Your Score is:</span><span id="finalScore"></span>
+                        </div>                        
+                            <div class="col-md-5">
+                                <span>Enter Your Initials to Save Your Score: <input id="initials" type="text" size="3">  
+                                <button id="saveBtn" type="button">Save</button>
+                                </span>
+
+                            </div>
+                    </div>
 
     <!--Main Content Section Ends-->
 
