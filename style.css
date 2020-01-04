@@ -1,24 +1,48 @@
 #header {
-    background-color: lightblue;
+    background-color: darkgray;
+    color: white;
+    text-align: center;
 }
 
-#btnGroup {
+/* #btnGroup {
     background-color: lightcoral;
+} */
+
+#info-row {
+    /* border: 5pt solid red; */
+    padding: 15px 0px;
+    background-color: lightgray;
+    /* margin-bottom: 10px; */
 }
 
 #description {
     background-color: lightslategrey;
 }
 
-#mainCont {
-    height: auto;
-    border: 5pt solid red;
+#scoreDiv {
+    background-color: lightyellow;
+    padding: 15px 0px;
 }
 
-#highScoresCont {
+/* #result {
+    text-align: right;
+} */
+
+/* #mainCont {
+    height: auto;
+    border: 5pt solid orange;
+} */
+
+#quizDiv {
+    /* height: auto; */
+    /* border: 5pt solid orange; */
+    background-color: lightblue;
+}
+
+#highScoresDiv {
     background-color: lightsalmon;
-    float: left;
-    width: 20%;
+    /* float: left; */
+    /* width: 20%; */
 }
 
 #quizCont {
