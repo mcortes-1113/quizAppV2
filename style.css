@@ -20,7 +20,7 @@
 }
 
 #scoreDiv {
-    background-color: lightyellow;
+    background-color: lightcoral;
     padding: 15px 0px;
 }
 
@@ -36,11 +36,11 @@
 #quizDiv {
     /* height: auto; */
     /* border: 5pt solid orange; */
-    background-color: lightblue;
+    background-color: lightgray;
 }
 
 #highScoresDiv {
-    background-color: lightsalmon;
+    background-color: lightgray;
     /* float: left; */
     /* width: 20%; */
 }

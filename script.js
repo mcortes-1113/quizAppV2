@@ -1,5 +1,5 @@
 // $(document).ready(function(){
-
+// 
 // var questions = require('questionbank.js')
 
 //timer variables
@@ -25,24 +25,24 @@ var highScores = [];
 
 var qbank = [
     {
-    title: "question placeholder1",
-    choices: ["a", "b","c","d"],
-    answer: "a"},
+    title: "In JavaScript: What element is used to store multiple values in a single variable?",
+    choices: ["Functions", "Variables","Strings","Arrays"],
+    answer: "Arrays"},
 
     {
-    title: "question placeholder2",
-    choices: ["a", "b","c","d"],
-    answer: "b"},
+    title: "In Javascript: What is the element called that can continue to execute a block of code as long as the specified condition remains TRUE?",
+    choices: ["Loop", "Clone","Repeater","Debugger"],
+    answer: "Loop"},
 
     {
-    title: "question placeholder3",
-    choices: ["a", "b","c","d"],
-    answer: "c"},
+    title: "What is considered to be the most popular programming language in the world?",
+    choices: ["Swift", "JavaScript","HTML","Ruby"],
+    answer: "JavaScript"},
     
     {
-    title: "question placeholder4",
-    choices: ["a", "b","c","d"],
-    answer: "d"}
+    title: "In CSS: What is the value called that defines colors such as the following: #FFFF00?",
+    choices: ["RGB Value", "Decimal Value","Hex Value","Color Value"],
+    answer: "Hex Value"}
 ];
 
 //create function to start timer
@@ -72,9 +72,19 @@ function stopTimer() {
 
 $("#startBtn").on("click", function() {
     event.preventDefault()
+    $("#startBtn").attr("disabled", true);
     startTimer();
     firstQ();
 });
+
+function reset() {
+    $("#resultCont").text("");
+    $("#finalScore").text("");
+    $("#initials").val("")
+    $("#timer").text("");
+    secondsElapsed = 0;
+    secondsTotal = 0;
+}
 
 function saveScore() {
     highScores = localStorage.getItem("highScores");
@@ -86,7 +96,9 @@ function saveScore() {
                 }
     highScores.push(addScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
+    reset();
     renderScores();
+    $("#startBtn").attr("disabled", false);
 }
 
 
@@ -95,6 +107,7 @@ function saveScore() {
 
 
 function renderScores() {
+    $("#scoreDiv").hide();
     $("#highScoresTable tr").remove();
     $("#highScoresTable").append($("<tr><th> User </th><th> Score </th></tr>"));
     highScores = localStorage.getItem("highScores");
@@ -122,6 +135,7 @@ $("#saveBtn").on("click", function() {
         currentCh = currentQindex.choices;
         currentA = currentQindex.answer;
 
+        $("#resultCont").text("");
         $("#question").text(currentQ);
         
         for (i=0;i<currentCh.length;i++) {
@@ -192,7 +206,7 @@ $("#saveBtn").on("click", function() {
             else {
             secondsElapsed = secondsElapsed +5;
             rendertime();
-            $("#resultCont").text("wrong");
+            $("#resultCont").text("Incorrect Answer. Try again.");
             }
         };
 
@@ -203,7 +217,7 @@ $("#saveBtn").on("click", function() {
                 thirdQ();      
             }
                 else {
-                $("#resultCont").text("wrong");
+                $("#resultCont").text("Incorrect Answer. Try again.");
                 secondsElapsed = secondsElapsed +5;
                 rendertime();
                 }
@@ -216,7 +230,7 @@ $("#saveBtn").on("click", function() {
                     lastQ();      
                 }
                     else {
-                    $("#resultCont").text("wrong");
+                    $("#resultCont").text("Incorrect Answer. Try again.");
                     secondsElapsed = secondsElapsed +5;
                     rendertime();
                     }
@@ -226,10 +240,11 @@ $("#saveBtn").on("click", function() {
 
                     userAnswer = event.target.textContent;
                     if (userAnswer === currentA) {
-                        endTest();      
+                        endTest(); 
+                        $("#scoreDiv").show();     
                     }
                         else {
-                        $("#resultCont").text("wrong");
+                        $("#resultCont").text("Incorrect Answer. Try again.");
                         secondsElapsed = secondsElapsed +5;
                         rendertime();
                         }
@@ -241,31 +256,8 @@ $("#saveBtn").on("click", function() {
     function endTest() {
         $("#question").text("");
         $("#choices").text("")   ;
-        $("#resultCont").text("End of Test");
+        $("#resultCont").text("This is the End of the Quiz");
         newScore = secondsRemain;
         $("#finalScore").text(newScore);
         stopTimer();
     }
-
-    //on click event to add activities to itinerary object
-// $("#actbtn").on("click", function(event) {
-//     event.preventDefault();
-//     getUserActivities(event);
-    // actArr = localStorage.getItem("activities");
-    // actArr = actArr ? JSON.parse(actArr) : [];
-    
-
-
-    // $("#newbtn").on("click", function(event) {
-    //     event.preventDefault();
-    //     getTripID(event);
-    //     getDatesArray(event);
-    //     tripsArr = localStorage.getItem("trips");
-    //     tripsArr = tripsArr ? JSON.parse(tripsArr) : [];
-    //     var trip = {
-    //                 tripID : tID,
-    //                 tripDates : tDates
-    //                 }
-    //     tripsArr.push(trip);
-    //     localStorage.setItem("trips", JSON.stringify(tripsArr));
-    // })
